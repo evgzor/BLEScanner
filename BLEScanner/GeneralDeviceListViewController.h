@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class DetailViewController;
+@class ServiceDetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface GeneralDeviceListViewController : UITableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) ServiceDetailViewController *detailViewController;
 
 @end

@@ -6,16 +6,15 @@
 //  Copyright (c) 2014 Evgeny Zorin. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "GeneralDeviceListViewController.h"
+#import "BLEDeviceCentralManager.h"
+#import "ServiceDetailViewController.h"
 
-#import "DetailViewController.h"
-
-@interface MasterViewController () {
-    NSMutableArray *_objects;
+@interface GeneralDeviceListViewController ()<BLEDataChange> {
 }
 @end
 
-@implementation MasterViewController
+@implementation GeneralDeviceListViewController
 
 - (void)awakeFromNib
 {
@@ -29,12 +28,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [BLEDeviceCentralManager instance].delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = (ServiceDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [BLEDeviceCentralManager instance].delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,12 +52,12 @@
 
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
+  /*  if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
     [_objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];*/
 }
 
 #pragma mark - Table View
@@ -62,15 +69,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return [BLEDeviceCentralManager instance].deviceList.count;;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    cell.textLabel.text = ((DeviceData*)[BLEDeviceCentralManager instance].deviceList[indexPath.row]).deviceName;
+    cell.detailTextLabel.text = ((DeviceData*)[BLEDeviceCentralManager instance].deviceList[indexPath.row]).uuid;
     return cell;
 }
 
@@ -82,12 +88,12 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+   /* if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
+    }*/
 }
 
 /*
@@ -109,8 +115,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = _objects[indexPath.row];
-        self.detailViewController.detailItem = object;
+
     }
 }
 
@@ -118,9 +123,17 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        ServiceDetailViewController* vc  = [segue destinationViewController];
+        vc.device = (DeviceData*)[BLEDeviceCentralManager instance].deviceList[indexPath.row];
+
     }
+}
+
+#pragma mark -- BLEProtocol implementation
+
+-(void)updateData
+{
+    [self.tableView reloadData];
 }
 
 @end

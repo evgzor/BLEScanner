@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BLEDeviceCentralManager.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,7 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
+    [BLEDeviceCentralManager instance];
     return YES;
 }
 							

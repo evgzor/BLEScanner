@@ -15,14 +15,16 @@
 		0D9C620B1998AD29006FC885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C620A1998AD29006FC885 /* AppDelegate.m */; };
 		0D9C620E1998AD2A006FC885 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9C620C1998AD2A006FC885 /* Main_iPhone.storyboard */; };
 		0D9C62111998AD2A006FC885 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9C620F1998AD2A006FC885 /* Main_iPad.storyboard */; };
-		0D9C62141998AD2A006FC885 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C62131998AD2A006FC885 /* MasterViewController.m */; };
-		0D9C62171998AD2A006FC885 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C62161998AD2A006FC885 /* DetailViewController.m */; };
-		0D9C62191998AD2A006FC885 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9C62181998AD2A006FC885 /* Images.xcassets */; };
+		0D9C62141998AD2A006FC885 /* GeneralDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C62131998AD2A006FC885 /* GeneralDeviceListViewController.m */; };
+		0D9C62171998AD2A006FC885 /* ServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C62161998AD2A006FC885 /* ServiceDetailViewController.m */; };
 		0D9C62201998AD2A006FC885 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9C621F1998AD2A006FC885 /* XCTest.framework */; };
 		0D9C62211998AD2A006FC885 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9C61FA1998AD29006FC885 /* Foundation.framework */; };
 		0D9C62221998AD2A006FC885 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9C61FE1998AD29006FC885 /* UIKit.framework */; };
 		0D9C622A1998AD2A006FC885 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D9C62281998AD2A006FC885 /* InfoPlist.strings */; };
 		0D9C622C1998AD2A006FC885 /* BLEScannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C622B1998AD2A006FC885 /* BLEScannerTests.m */; };
+		0D9C62391998B158006FC885 /* BLEDeviceCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9C62381998B158006FC885 /* BLEDeviceCentralManager.m */; };
+		0DDBE0D21999008F007B7815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DDBE0D11999008F007B7815 /* Images.xcassets */; };
+		0DDBE0D7199905DB007B7815 /* CharacteristicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDBE0D6199905DB007B7815 /* CharacteristicsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +50,20 @@
 		0D9C620A1998AD29006FC885 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0D9C620D1998AD2A006FC885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0D9C62101998AD2A006FC885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		0D9C62121998AD2A006FC885 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		0D9C62131998AD2A006FC885 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		0D9C62151998AD2A006FC885 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		0D9C62161998AD2A006FC885 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		0D9C62181998AD2A006FC885 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0D9C62121998AD2A006FC885 /* GeneralDeviceListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneralDeviceListViewController.h; sourceTree = "<group>"; };
+		0D9C62131998AD2A006FC885 /* GeneralDeviceListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneralDeviceListViewController.m; sourceTree = "<group>"; };
+		0D9C62151998AD2A006FC885 /* ServiceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceDetailViewController.h; sourceTree = "<group>"; };
+		0D9C62161998AD2A006FC885 /* ServiceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceDetailViewController.m; sourceTree = "<group>"; };
 		0D9C621E1998AD2A006FC885 /* BLEScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9C621F1998AD2A006FC885 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0D9C62271998AD2A006FC885 /* BLEScannerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLEScannerTests-Info.plist"; sourceTree = "<group>"; };
 		0D9C62291998AD2A006FC885 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0D9C622B1998AD2A006FC885 /* BLEScannerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEScannerTests.m; sourceTree = "<group>"; };
+		0D9C62371998B158006FC885 /* BLEDeviceCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDeviceCentralManager.h; path = DeviceManagment/BLEDeviceCentralManager.h; sourceTree = "<group>"; };
+		0D9C62381998B158006FC885 /* BLEDeviceCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEDeviceCentralManager.m; path = DeviceManagment/BLEDeviceCentralManager.m; sourceTree = "<group>"; };
+		0DDBE0D11999008F007B7815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0DDBE0D5199905DB007B7815 /* CharacteristicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicsViewController.h; sourceTree = "<group>"; };
+		0DDBE0D6199905DB007B7815 /* CharacteristicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +123,14 @@
 		0D9C62001998AD29006FC885 /* BLEScanner */ = {
 			isa = PBXGroup;
 			children = (
+				0D9C62011998AD29006FC885 /* Supporting Files */,
+				0D9C62351998B0B0006FC885 /* ViewControllers */,
+				0D9C62361998B0C8006FC885 /* Device Managment */,
 				0D9C62091998AD29006FC885 /* AppDelegate.h */,
 				0D9C620A1998AD29006FC885 /* AppDelegate.m */,
 				0D9C620C1998AD2A006FC885 /* Main_iPhone.storyboard */,
 				0D9C620F1998AD2A006FC885 /* Main_iPad.storyboard */,
-				0D9C62121998AD2A006FC885 /* MasterViewController.h */,
-				0D9C62131998AD2A006FC885 /* MasterViewController.m */,
-				0D9C62151998AD2A006FC885 /* DetailViewController.h */,
-				0D9C62161998AD2A006FC885 /* DetailViewController.m */,
-				0D9C62181998AD2A006FC885 /* Images.xcassets */,
-				0D9C62011998AD29006FC885 /* Supporting Files */,
+				0DDBE0D11999008F007B7815 /* Images.xcassets */,
 			);
 			path = BLEScanner;
 			sourceTree = "<group>";
@@ -158,6 +162,28 @@
 				0D9C62281998AD2A006FC885 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D9C62351998B0B0006FC885 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D9C62121998AD2A006FC885 /* GeneralDeviceListViewController.h */,
+				0D9C62131998AD2A006FC885 /* GeneralDeviceListViewController.m */,
+				0D9C62151998AD2A006FC885 /* ServiceDetailViewController.h */,
+				0D9C62161998AD2A006FC885 /* ServiceDetailViewController.m */,
+				0DDBE0D5199905DB007B7815 /* CharacteristicsViewController.h */,
+				0DDBE0D6199905DB007B7815 /* CharacteristicsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0D9C62361998B0C8006FC885 /* Device Managment */ = {
+			isa = PBXGroup;
+			children = (
+				0D9C62371998B158006FC885 /* BLEDeviceCentralManager.h */,
+				0D9C62381998B158006FC885 /* BLEDeviceCentralManager.m */,
+			);
+			name = "Device Managment";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +233,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Evgeny Zorin";
 				TargetAttributes = {
+					0D9C61F61998AD29006FC885 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					0D9C621D1998AD2A006FC885 = {
 						TestTargetID = 0D9C61F61998AD29006FC885;
 					};
@@ -237,7 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9C62111998AD2A006FC885 /* Main_iPad.storyboard in Resources */,
-				0D9C62191998AD2A006FC885 /* Images.xcassets in Resources */,
+				0DDBE0D21999008F007B7815 /* Images.xcassets in Resources */,
 				0D9C620E1998AD2A006FC885 /* Main_iPhone.storyboard in Resources */,
 				0D9C62051998AD29006FC885 /* InfoPlist.strings in Resources */,
 			);
@@ -258,10 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D9C62391998B158006FC885 /* BLEDeviceCentralManager.m in Sources */,
 				0D9C620B1998AD29006FC885 /* AppDelegate.m in Sources */,
-				0D9C62141998AD2A006FC885 /* MasterViewController.m in Sources */,
+				0D9C62141998AD2A006FC885 /* GeneralDeviceListViewController.m in Sources */,
+				0DDBE0D7199905DB007B7815 /* CharacteristicsViewController.m in Sources */,
 				0D9C62071998AD29006FC885 /* main.m in Sources */,
-				0D9C62171998AD2A006FC885 /* DetailViewController.m in Sources */,
+				0D9C62171998AD2A006FC885 /* ServiceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +511,7 @@
 				0D9C62311998AD2A006FC885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D9C62321998AD2A006FC885 /* Build configuration list for PBXNativeTarget "BLEScannerTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +520,7 @@
 				0D9C62341998AD2A006FC885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
