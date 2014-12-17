@@ -78,6 +78,7 @@
 @property (strong, nonatomic) CBPeripheralManager  *peripheralManager;
 @property (strong, nonatomic) CBPeripheral          *discoveredPeripheral;
 @property (strong, nonatomic) NSMutableData         *data;
+@property (strong, nonatomic) NSMutableArray       *discoverdPeripheralsList;
 
 
 @end
@@ -144,8 +145,10 @@
  */
 - (void)scan
 {
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber  numberWithBool:YES], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
+    
     [self.centralManager scanForPeripheralsWithServices:nil
-                                                options: nil];
+                                                options: options];
     
     NSLog(@"Scanning started");
 }
@@ -188,11 +191,13 @@
     
     
     // Ok, it's in range - have we already seen it?
-    if (![self.deviceList isContainUUID:[peripheral.identifier UUIDString]]) {
+    NSString *uuid = [peripheral.identifier UUIDString];
+    if (![self.deviceList isContainUUID:uuid]) {
         
         DeviceData* device = [[DeviceData alloc] init];
         device.deviceName = peripheral.name;
         device.uuid = [peripheral.identifier UUIDString];
+        device.RSSI = RSSI;
         device.serviceList = [@[] mutableCopy];
         
         [self.deviceList addObject:device];
@@ -200,11 +205,21 @@
         // Save a local copy of the peripheral, so CoreBluetooth doesn't get rid of it
         self.discoveredPeripheral = peripheral;
         
+        if (![self.discoverdPeripheralsList containsObject:peripheral]) {
+            [self.discoverdPeripheralsList addObject:peripheral];
+        }
+        
         // And connect
         NSLog(@"Connecting to peripheral %@", peripheral);
         [self.centralManager connectPeripheral:peripheral options:nil];
-        [self.delegate updateData];
+        
     }
+    else
+    {
+        [self.deviceList getDeviceByUUID:uuid].RSSI = RSSI ;
+    }
+    
+    [self.delegate updateData];
 }
 
 
@@ -259,7 +274,7 @@
         serviceData.serviceName = serviceName;
         serviceData.uuid = service.UUID.UUIDString;
         serviceData.characteristics = [@[] mutableCopy];
-        NSLog(@"%@",serviceName);
+        NSLog(@"Service name %@",serviceName);
         [device.serviceList addObject:serviceData];
         [peripheral discoverCharacteristics:nil forService:service];
     }
@@ -284,7 +299,7 @@
         
         // And check if it's the right one
         if (characteristic.UUID) {
-            NSLog(@"%@",characteristic.UUID.UUIDString);
+            NSLog(@"characteristics %@",characteristic.UUID.UUIDString);
             [serviceData.characteristics addObject:characteristic.UUID.UUIDString];
             // If it is, subscribe to it
             //[peripheral setNotifyValue:YES forCharacteristic:characteristic];

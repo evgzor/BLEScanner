@@ -23,6 +23,7 @@
 @property (strong) NSString* deviceName;
 @property (strong) NSString* uuid;
 @property (strong) NSMutableArray* serviceList;
+@property (strong) NSNumber* RSSI;
 
 @end
 

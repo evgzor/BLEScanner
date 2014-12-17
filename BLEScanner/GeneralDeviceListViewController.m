@@ -75,8 +75,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = ((DeviceData*)[BLEDeviceCentralManager instance].deviceList[indexPath.row]).deviceName;
-    cell.detailTextLabel.text = ((DeviceData*)[BLEDeviceCentralManager instance].deviceList[indexPath.row]).uuid;
+    DeviceData* deviceData = (DeviceData*)[BLEDeviceCentralManager instance].deviceList[indexPath.row];
+
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ RSSI : %d",deviceData.deviceName,deviceData.RSSI.integerValue];
+    cell.detailTextLabel.text = deviceData.uuid;
     return cell;
 }
 
